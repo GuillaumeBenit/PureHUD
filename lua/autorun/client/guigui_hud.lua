@@ -32,9 +32,10 @@ hook.Add( "HUDPaint", "guigui_hud", function()
 	end	
 
 	-- Armor
+	local armor_text=GetConVar("guigui_hud_Armor"):GetString()
 	local armor=LocalPlayer():Armor()
 	if armor>=1 then
-		draw.DrawText("ARMOR","guigui_hud_font_armor",ScrW()-15,ScrH()-30,Color(0,0,250,armor*5),2)
+		draw.DrawText(armor_text,"guigui_hud_font_armor",ScrW()-15,ScrH()-30,Color(0,0,250,armor*5),2)
 	end
 
 	-- Server

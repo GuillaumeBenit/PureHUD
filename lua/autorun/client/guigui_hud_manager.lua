@@ -14,13 +14,13 @@ list.Set(
 			end
 
 			local Text=vgui.Create("DLabel",window)
-			Text:SetPos(20,25)
+			Text:SetPos(20,20)
 			Text:SetSize(150,25)
 			Text:SetTextColor(Color(255,255,255))
 			Text:SetText("Server name :")
 
 			local DermaText=vgui.Create("DTextEntry", window)
-			DermaText:SetPos(20,50)
+			DermaText:SetPos(20,45)
 			DermaText:SetTall(20)
 			DermaText:SetWide(110)
 			DermaText:SetEnterAllowed(true)
@@ -28,21 +28,39 @@ list.Set(
 
 			local DermaButton=vgui.Create("DButton",window)
 			DermaButton:SetText("Ok")
-			DermaButton:SetPos(140,50)
+			DermaButton:SetPos(140,45)
 			DermaButton:SetSize(40,20)
 			DermaButton.DoClick = function ()
 				RunConsoleCommand("guigui_hud_ServerName",DermaText:GetValue())
 			end
 
 			local Text=vgui.Create("DLabel",window)
-			Text:SetPos(20,75)
+			Text:SetPos(20,65)
+			Text:SetSize(150,25)
+			Text:SetTextColor(Color(255,255,255))
+			Text:SetText("Armor text :")
+
+			local MenuButton=vgui.Create("DButton",window)
+			MenuButton:SetText("Menu >")
+			MenuButton:SetPos(20,90)
+			MenuButton:SetSize(160,20)
+			MenuButton.DoClick=function ()
+				local MenuButtonOptions = DermaMenu()
+				MenuButtonOptions:AddOption("ARMOR", function() RunConsoleCommand("guigui_hud_Armor","ARMOR") end )
+				MenuButtonOptions:AddOption("ARMURE", function() RunConsoleCommand("guigui_hud_Armor","ARMURE") end )
+				MenuButtonOptions:AddOption("KEVLAR", function() RunConsoleCommand("guigui_hud_Armor","KEVLAR") end )
+				MenuButtonOptions:Open()
+			end
+
+			local Text=vgui.Create("DLabel",window)
+			Text:SetPos(20,110)
 			Text:SetSize(150,25)
 			Text:SetTextColor(Color(255,255,255))
 			Text:SetText("Currency (for DarkRP) :")
 
 			local MenuButton=vgui.Create("DButton",window)
 			MenuButton:SetText("Menu >")
-			MenuButton:SetPos(20,100)
+			MenuButton:SetPos(20,135)
 			MenuButton:SetSize(160,20)
 			MenuButton.DoClick=function ()
 				local MenuButtonOptions = DermaMenu()
@@ -54,19 +72,19 @@ list.Set(
 			end
 
 			local Text=vgui.Create("DLabel",window)
-			Text:SetPos(20,125)
+			Text:SetPos(20,160)
 			Text:SetSize(160,25)
 			Text:SetTextColor(Color(255,255,255))
 			Text:SetText("Opacity (for DarkRP) :")
 
 			local NumSliderThingy=vgui.Create("DNumSlider",window)
-			NumSliderThingy:SetPos(20,145)
+			NumSliderThingy:SetPos(20,185)
 			NumSliderThingy:SetSize(160,25)
 			NumSliderThingy:SetMin(64)
 			NumSliderThingy:SetMax(256)
 			NumSliderThingy:SetDecimals(0) 
 			NumSliderThingy:SetText("Opacity :")
-			NumSliderThingy:SetConVar("guigui_hud_opacity")			
+			NumSliderThingy:SetConVar("guigui_hud_opacity")	
 		end
 	}
 )
